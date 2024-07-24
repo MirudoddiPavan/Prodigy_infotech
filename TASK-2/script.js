@@ -1,37 +1,52 @@
-let startTime;
-let updatedTime;
-let difference;
-let interval;
-let isRunning = false;
-let lapCounter = 0;
-let lapsContainer = document.getElementById('laps');
+let startTime, updatedTime, difference, tInterval, savedTime = 0;
+let running = false;
+let paused = false;
 
+const display = document.getElementById('display');
 const startStopBtn = document.getElementById('startStopBtn');
+const pauseBtn = document.getElementById('pauseBtn');
 const resetBtn = document.getElementById('resetBtn');
 const lapBtn = document.getElementById('lapBtn');
-const display = document.getElementById('display');
+const laps = document.getElementById('laps');
 
-function startStopwatch() {
-    if (!isRunning) {
-        startTime = new Date().getTime() - (difference || 0);
-        interval = setInterval(updateTime, 1);
-        startStopBtn.textContent = 'Pause';
-        isRunning = true;
+startStopBtn.addEventListener('click', startStop);
+pauseBtn.addEventListener('click', pause);
+resetBtn.addEventListener('click', reset);
+lapBtn.addEventListener('click', recordLap);
+
+function startStop() {
+    if (!running) {
+        startTime = new Date().getTime() - savedTime;
+        tInterval = setInterval(updateTime, 1);
+        running = true;
+        paused = false;
+        startStopBtn.textContent = 'Stop';
     } else {
-        clearInterval(interval);
+        clearInterval(tInterval);
+        running = false;
         startStopBtn.textContent = 'Start';
-        isRunning = false;
+        savedTime = difference;
     }
 }
 
-function resetStopwatch() {
-    clearInterval(interval);
-    startStopBtn.textContent = 'Start';
+function pause() {
+    if (running && !paused) {
+        clearInterval(tInterval);
+        paused = true;
+        running = false;
+        savedTime = difference;
+        startStopBtn.textContent = 'Start';
+    }
+}
+
+function reset() {
+    clearInterval(tInterval);
+    running = false;
+    paused = false;
     display.textContent = '00:00:00.000';
-    difference = 0;
-    isRunning = false;
-    lapCounter = 0;
-    lapsContainer.innerHTML = '';
+    startStopBtn.textContent = 'Start';
+    laps.innerHTML = '';
+    savedTime = 0;
 }
 
 function updateTime() {
@@ -43,22 +58,17 @@ function updateTime() {
     let seconds = Math.floor((difference % (1000 * 60)) / 1000);
     let milliseconds = difference % 1000;
 
-    display.textContent = 
-        (hours < 10 ? '0' + hours : hours) + ':' +
-        (minutes < 10 ? '0' + minutes : minutes) + ':' +
-        (seconds < 10 ? '0' + seconds : seconds) + '.' +
-        (milliseconds < 100 ? (milliseconds < 10 ? '00' + milliseconds : '0' + milliseconds) : milliseconds);
+    display.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}.${pad(milliseconds, 3)}`;
+}
+
+function pad(number, digits = 2) {
+    return number.toString().padStart(digits, '0');
 }
 
 function recordLap() {
-    if (isRunning) {
-        lapCounter++;
-        let lapTime = document.createElement('div');
-        lapTime.textContent = `Lap ${lapCounter}: ${display.textContent}`;
-        lapsContainer.appendChild(lapTime);
+    if (running || paused) {
+        const lapTime = document.createElement('div');
+        lapTime.textContent = display.textContent;
+        laps.appendChild(lapTime);
     }
 }
-
-startStopBtn.addEventListener('click', startStopwatch);
-resetBtn.addEventListener('click', resetStopwatch);
-lapBtn.addEventListener('click', recordLap);
