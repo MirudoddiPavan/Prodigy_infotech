@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html class="bg-img">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather Dashboard</title>
+    <link
+      rel="title icon"
+      href="https://user-images.githubusercontent.com/107449948/182532290-62e6066f-8086-4e38-a65b-c7c729d73677.png"
+    />
+    <!-- bulma link -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya&family=Merriweather&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS link -->
+    <link rel="stylesheet" href="Assets/CSS/style.css" />
+  </head>
+
+  <body>
+    <!-- Hero -->
+    <section class="hero is-small is-primary">
+      <div class="hero-body has-text-centered">
+        <p class="hero-text" id="hero_title">A Day Weather Forcast</p>
+        <p class="hero-text" id="hero_subtitle">
+          Search a city to get a daily 
+        </p>
+        <p class="hero-text clock"></p>
+      </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="section search-bar">
+      <h1 id="search_title">Search for a City:</h1>
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" type="text" placeholder="Search Cities" />
+        </div>
+        <div class="control">
+          <button class="button is-info" id="search_btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Forcast -->
+    <div class="container">
+      <div class="columns">
+        <div class="column is-5"></div>
+        <div class="column is-4">
+          <div class="box" id="daily_forcast">
+            <p class="title has-text-centered" id="daily_city"></p>
+            <p class="subtitle date has-text-centered"></p>
+            <div class="columns">
+              <div class="column daily">
+                <p class="daily-temp">
+                  Temperature: <span id="daily_temp"></span>
+                </p>
+                <p class="daily-humidity">
+                  Humidity: <span id="daily_humidity"></span>
+                </p>
+                <p class="daily-wind">
+                  Wind Speed: <span id="daily_wind"></span>
+                </p>
+                <p class="daily-uv">UV Index: <span id="daily_uv"></span></p>
+              </div>
+              <div class="column">
+                <img
+                  src="Assets/Images/weather.png"
+                  alt="weather icon"
+                  class="daily-icon"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Searches -->
+    
+
+
+       
+
+    <!-- JS/FA scripts -->
+    <script
+      src="https://kit.fontawesome.com/ce42e41f83.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/Js/script.js"></script>
+  </body>
+</html>
