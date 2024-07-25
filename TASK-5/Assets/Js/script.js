@@ -8,11 +8,6 @@ var dayHumidityEl = document.querySelector("#daily_humidity");
 var dayWindEl = document.querySelector("#daily_wind");
 var dayUVEl = document.querySelector("#daily_uv");
 var dayIcon = document.querySelector(".daily-icon");
-var day1El = document.querySelector("#day1");
-var day2El = document.querySelector("#day2");
-var day3El = document.querySelector("#day3");
-var day4El = document.querySelector("#day4");
-var day5El = document.querySelector("#day5");
 var APIKey = "237d2dfde4a0e93ba29a4167915f9688";
 
 // Date
@@ -48,10 +43,3 @@ searchEl.addEventListener("click", function () {
     });
 });
 
-//
-// ---------------------------------------------------------------------------------------------------------
-//
-// create a fetch to get 5 day, for loop and insert in day, icon, temp, wind, humidity
-// wrap all fetchs in one function to be active on search
-// create "click" save funtions
-// create "click" clear functions
