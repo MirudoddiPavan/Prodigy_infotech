@@ -14,6 +14,7 @@ body{
   color:white;
   box-shadow: 0 0 20px rgba(5, 9, 95, 0.5);
   text-align: left;
+  background: url('prodigy.png') no-repeat center center/cover;
 }
 label{
   margin:3.5px;
