@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+/* Apply background image to the entire page */
+body {
+    font-family: 'Alegreya', 'Merriweather', sans-serif;
+    background-image: url('StopWatch.jpg'); /* Path to your background image */
+    background-size: cover; /* Cover the whole page */
+    background-position: center; /* Center the image */
+    background-attachment: fixed; /* Fix the image in place while scrolling */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    margin: 0;
+    padding: 0;
+}
+
+.stopwatch {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#display {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.controls button {
+    font-size: 1em;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+#laps {
+    margin-top: 20px;
+    text-align: left;
+}
+/* Body and Stopwatch Container Styles */
+body {
+    font-family: 'Alegreya', 'Merriweather', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ececec;
+    margin: 0;
+    transition: background-color 0.5s;
+}
+/* Controls Button Styles */
+.controls button {
+    font-size: 1.2em;
+    padding: 10px 25px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745; /* Green background color */
+    color: white; /* Text color */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover State */
+.controls button:hover {
+    background-color: #218838; /* Darker green when hovered */
+    transform: translateY(-2px);
+}
+
+/* Active State */
+.controls button:active {
+    background-color: #1e7e34; /* Even darker green when pressed */
+    transform: translateY(2px);
+}
+/* Controls Button Styles with Gradient */
+.controls button {
+    font-size: 1.2em;
+    padding: 10px 25px;
+    margin: 10px 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #ff5733, #ffbd33); /* Gradient background */
+    color: white; /* Text color */
+    transition: background 0.3s, transform 0.3s;
+}
+
+/* Hover State */
+.controls button:hover {
+    background: linear-gradient(45deg, #e04e1f, #e0a10f); /* Darker gradient when hovered */
+    transform: translateY(-2px);
+}
+
+/* Active State */
+.controls button:active {
+    background: linear-gradient(45deg, #c94317, #c0890a); /* Even darker gradient when pressed */
+    transform: translateY(2px);
+}
+
+.stopwatch {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow:
+
+#laps div {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+}
